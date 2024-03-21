@@ -1,8 +1,7 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import Head from "next/head";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   return (
@@ -14,11 +13,8 @@ const Home = () => {
         <link rel="icon" href="/Logo.svg" />
       </Head>
       <main>
-        <AppBar position="static">
-          <Container maxWidth="xl">
-            <Box></Box>
-          </Container>
-        </AppBar>
+        <Header />
+        <Footer />
       </main>
     </>
   );
