@@ -1,4 +1,6 @@
+import { Stack } from "@mui/material";
+
 const signIn = () => {
-  return;
+  return <Stack></Stack>;
 };
 export default signIn;

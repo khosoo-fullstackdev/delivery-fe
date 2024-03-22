@@ -1,5 +1,11 @@
-import { Container, Stack, Typography } from "@mui/material";
-import { FooterLogo } from "../../public/Icons";
+import { Button, Container, Stack, Typography, Box } from "@mui/material";
+import {
+  FacebookLogo,
+  FooterLogo,
+  InstaLogo,
+  TwitterLogo,
+} from "../../public/Icons";
+
 const text = [
   "Нүүр",
   "Холбоо барих",
@@ -11,7 +17,12 @@ const text = [
 
 const Footer = () => {
   return (
-    <Stack bgcolor="#18BA51" justifyContent="center" alignItems="center">
+    <Stack
+      bgcolor="#18BA51"
+      justifyContent="center"
+      alignItems="center"
+      sx={{ backgroundImage: `URL('/Group552.png')` }}
+    >
       <Container maxWidth="xl">
         <Stack
           width="1200px"
@@ -20,6 +31,7 @@ const Footer = () => {
           alignItems="center"
           gap="40px"
           margin="auto"
+          position="relative"
         >
           <Stack direction={"row"} gap="8px" alignItems="center">
             <FooterLogo />
@@ -33,25 +45,41 @@ const Footer = () => {
               Food Delivery
             </Typography>
           </Stack>
-          <Stack
-            direction="row"
-            justifyItems="space-between"
-            alignItems="center"
-          >
+          <Stack width="1200px" direction="row" justifyContent="space-between">
             {text.map((a) => (
-              <Typography
+              <Button
+                sx={{
+                  textDecorationLine: "underline",
+                  textTransform: "none",
+                  fontWeight: "590",
+                  fontSize: "16px",
+                  fontStyle: "normal",
+                  color: "white",
+                }}
                 key={a}
-                fontWeight="590"
-                fontSize="16px"
-                fontStyle="normal"
-                color="white"
               >
                 {a}
-              </Typography>
+              </Button>
             ))}
           </Stack>
-          <Stack></Stack>
-          <Stack></Stack>
+          <Stack direction="row" gap="18px" padding="5px" alignItems="center">
+            <FacebookLogo />
+            <InstaLogo />
+            <TwitterLogo />
+          </Stack>
+          <Box
+            borderBottom="1px solid"
+            width="inherit"
+            borderColor="white"
+          ></Box>
+          <Stack alignItems="center" color="white">
+            <Typography fontSize="16px" fontWeight="400">
+              © 2024 Pinecone Foods LLC
+            </Typography>
+            <Typography fontSize="16px" fontWeight="400">
+              Зохиогчийн эрх хуулиар хамгаалагдсан.
+            </Typography>
+          </Stack>
         </Stack>
       </Container>
     </Stack>
