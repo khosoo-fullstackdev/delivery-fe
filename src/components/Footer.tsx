@@ -23,9 +23,9 @@ const Footer = () => {
       alignItems="center"
       sx={{ backgroundImage: `URL('/Group552.png')` }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Stack
-          width="1200px"
+          width="inherit"
           height="545px"
           justifyContent="center"
           alignItems="center"

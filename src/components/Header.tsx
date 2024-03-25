@@ -5,12 +5,12 @@ import Search from "./Search";
 const Header = () => {
   return (
     <Stack justifyContent="center" alignItems="center" position="static">
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Stack
           direction="row"
           alignItems="center"
           justifyContent="space-between"
-          width="1200px"
+          width="inherit"
           margin="auto"
         >
           <Stack direction="row" alignItems="center" gap={2}>
