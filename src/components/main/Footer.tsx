@@ -4,7 +4,7 @@ import {
   FooterLogo,
   InstaLogo,
   TwitterLogo,
-} from "../../public/Icons";
+} from "../../../public/Icons";
 
 const text = [
   "Нүүр",

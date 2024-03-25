@@ -1,5 +1,5 @@
 import { Button, Link, Stack, Typography } from "@mui/material";
-import { PasswordInput, TextInput } from "./Input";
+import { PasswordInput, TextInput } from "../main/Input";
 import { useState } from "react";
 
 const SignIn = () => {

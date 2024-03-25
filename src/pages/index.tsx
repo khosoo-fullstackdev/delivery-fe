@@ -1,8 +1,6 @@
 import * as React from "react";
 import Head from "next/head";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import SignIn from "@/components/Singin";
+import HomePage from "@/components/home/Home";
 
 const Home = () => {
   return (
@@ -14,9 +12,7 @@ const Home = () => {
         <link rel="icon" href="/Logo.svg" />
       </Head>
       <main>
-        <Header />
-        <SignIn />
-        <Footer />
+        <HomePage />
       </main>
     </>
   );

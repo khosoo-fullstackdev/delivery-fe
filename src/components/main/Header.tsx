@@ -1,5 +1,5 @@
 import { Button, Stack } from "@mui/material";
-import { LogoIcon, BasketIcon, PersonIcon } from "../../public/Icons";
+import { LogoIcon, BasketIcon, PersonIcon } from "../../../public/Icons";
 import { Container } from "@mui/material";
 import Search from "./Search";
 const Header = () => {
