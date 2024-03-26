@@ -1,15 +1,21 @@
 import { Container, Stack } from "@mui/material";
 import { AppetizerCard } from "../cards/AppetizerCard";
+import { DiscountCard } from "../cards/DiscountCard";
+import { MainDishCard } from "../cards/MainDishCard";
+import { DesertCard } from "../cards/DesertCard";
 
 export const HomeCards = () => {
   return (
-    <Stack>
-      <Container maxWidth="lg" sx={{ gap: "80px" }}>
+    <Container
+      maxWidth="lg"
+      sx={{ gap: "80px", alignItems: "center", justifyContent: "center" }}
+    >
+      <Stack>
+        <DiscountCard />
+        <MainDishCard />
         <AppetizerCard />
-        <Stack></Stack>
-        <Stack></Stack>
-        <Stack></Stack>
-      </Container>
-    </Stack>
+        <DesertCard />
+      </Stack>
+    </Container>
   );
 };

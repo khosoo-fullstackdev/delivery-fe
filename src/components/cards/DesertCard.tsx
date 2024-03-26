@@ -1,6 +1,6 @@
 import { StarIcon } from "@/icons/StarIcon";
 import { Box, Stack, Typography } from "@mui/material";
-export const DiscountCard = () => {
+export const DesertCard = () => {
   return (
     <Stack width="1200px" height="344px">
       <Stack direction="row" alignItems="center" justifyContent="space-between">

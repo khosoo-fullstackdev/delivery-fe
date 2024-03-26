@@ -117,22 +117,22 @@ export const CardDataComercial = [
   {
     title: "Хүргэлтийн төлөв хянах",
     text: "Захиалга бэлтгэлийн явцыг хянах",
-    icon: "",
+    icon: "/icons/book.png",
   },
   {
     title: "Хүргэлтийн төлөв хянах",
     text: "Захиалга бэлтгэлийн явцыг хянах",
-    icon: "",
+    icon: "/icons/clock.png",
   },
   {
     title: "Хүргэлтийн төлөв хянах",
     text: "Захиалга бэлтгэлийн явцыг хянах",
-    icon: "",
+    icon: "/icons/bowl.png",
   },
   {
     title: "Хүргэлтийн төлөв хянах",
     text: "Захиалга бэлтгэлийн явцыг хянах",
-    icon: "",
+    icon: "/icons/book.png",
   },
 ];
 

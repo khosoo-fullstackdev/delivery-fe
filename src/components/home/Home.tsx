@@ -5,7 +5,12 @@ import { HomeCards } from "./HomeCards";
 
 const HomePage = () => {
   return (
-    <Stack width={"100%"} justifyContent={"center"} alignContent={"center"}>
+    <Stack
+      width="100%"
+      margin="auto"
+      justifyContent="center"
+      alignContent="center"
+    >
       <HomeTop />
       <HomeAd />
       <HomeCards />

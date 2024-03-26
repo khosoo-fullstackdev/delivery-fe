@@ -1,19 +1,18 @@
-import { Button, Container, Stack, Typography, Box } from "@mui/material";
+import { Container, Stack, Typography, Box } from "@mui/material";
 import {
   FacebookLogo,
   FooterLogo,
   InstaLogo,
   TwitterLogo,
 } from "../../../public/Icons";
-
-const text = [
-  "Нүүр",
-  "Холбоо барих",
-  "Хоолны цэс",
-  "Үйлчилгээний нөхцөл",
-  "Хүргэлтийн бүс",
-  "Нууцын бодлого",
-];
+import {
+  FooterButton1,
+  FooterButton2,
+  FooterButton3,
+  FooterButton4,
+  FooterButton5,
+  FooterButton6,
+} from "./Buttons";
 
 const Footer = () => {
   return (
@@ -46,21 +45,12 @@ const Footer = () => {
             </Typography>
           </Stack>
           <Stack width="1200px" direction="row" justifyContent="space-between">
-            {text.map((a) => (
-              <Button
-                sx={{
-                  textDecorationLine: "underline",
-                  textTransform: "none",
-                  fontWeight: "590",
-                  fontSize: "16px",
-                  fontStyle: "normal",
-                  color: "white",
-                }}
-                key={a}
-              >
-                {a}
-              </Button>
-            ))}
+            <FooterButton1 />
+            <FooterButton2 />
+            <FooterButton3 />
+            <FooterButton4 />
+            <FooterButton5 />
+            <FooterButton6 />
           </Stack>
           <Stack direction="row" gap="18px" padding="5px" alignItems="center">
             <FacebookLogo />

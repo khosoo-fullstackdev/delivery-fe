@@ -1,8 +1,10 @@
 import { Button, Stack } from "@mui/material";
 import { LogoIcon, BasketIcon, PersonIcon } from "../../../public/Icons";
 import { Container } from "@mui/material";
+import { useRouter } from "next/router";
 import Search from "./Search";
 const Header = () => {
+  const router = useRouter();
   return (
     <Stack justifyContent="center" alignItems="center" position="static">
       <Container maxWidth="lg">
@@ -16,6 +18,7 @@ const Header = () => {
           <Stack direction="row" alignItems="center" gap={2}>
             <LogoIcon />
             <Button
+              onClick={() => router.push("/")}
               sx={{
                 padding: "8px 16px",
                 fontSize: "14px",
@@ -26,6 +29,7 @@ const Header = () => {
               НҮҮР
             </Button>
             <Button
+              onClick={() => router.push("/menu")}
               sx={{
                 padding: "8px 16px",
                 fontSize: "14px",
@@ -36,6 +40,7 @@ const Header = () => {
               ХООЛНЫ ЦЭС
             </Button>
             <Button
+              onClick={() => router.push("/delivery")}
               sx={{
                 padding: "8px 16px",
                 fontSize: "14px",
