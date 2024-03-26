@@ -10,6 +10,7 @@ export {
   FooterButton4,
   FooterButton5,
   FooterButton6,
+  MenuButton,
 };
 
 const SquareButton = () => {
@@ -129,3 +130,46 @@ const FooterButton6 = () => {
     </Button>
   );
 };
+
+const MenuButton = () => {
+  return (
+    <Button
+      sx={{
+        padding: "8px 16px",
+        textTransform: "none",
+        borderRadius: "8px",
+        border: "1px solid",
+        background: "#18BA51",
+        color: "white",
+        width: "249px",
+        height: "27px",
+        fontSize: "18px",
+        fontWeight: "500",
+        lineHeight: "150%",
+        letterSpacing: "-0.396px",
+      }}
+    ></Button>
+  );
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
