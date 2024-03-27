@@ -1,14 +1,17 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { CustomThemeProvider } from "@/utils/CustomTheme";
 import Layout from "@/components/main/Layout";
+import { CustomThemeProvider } from "@/utils/CustomTheme";
+import { FoodContextProvider } from "@/context/ShoppingCart";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <CustomThemeProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <FoodContextProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </FoodContextProvider>
     </CustomThemeProvider>
   );
 };
