@@ -6,7 +6,7 @@ const Map = dynamic(() => import("@/components/main/Map"), { ssr: false });
 
 const Delivery = () => {
   return (
-    <Stack paddingTop="61px">
+    <Stack paddingTop="129.5px">
       <Container maxWidth="lg">
         <Stack>
           <Map />

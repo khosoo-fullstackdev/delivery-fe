@@ -1,6 +1,6 @@
-import { Stack } from "@mui/material";
+import SignIn from "@/components/Singup";
 
-const signIn = () => {
-  return <Stack></Stack>;
+const signin = () => {
+  return <SignIn />;
 };
-export default signIn;
+export default signin;

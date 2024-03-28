@@ -2,7 +2,7 @@ import { Container, Stack } from "@mui/material";
 
 const menu = () => {
   return (
-    <Stack width="inherit" paddingY="32px">
+    <Stack width="inherit" paddingTop="70.5px">
       <Container maxWidth="lg">
         <Stack
           direction="row"

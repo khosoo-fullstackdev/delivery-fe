@@ -6,7 +6,13 @@ import Search from "./Search";
 const Header = () => {
   const router = useRouter();
   return (
-    <Stack justifyContent="center" alignItems="center" position="static">
+    <Stack
+      justifyContent="center"
+      sx={{ backgroundColor: "#FFF" }}
+      position="fixed"
+      zIndex="20"
+      width="100%"
+    >
       <Container maxWidth="lg">
         <Stack
           direction="row"

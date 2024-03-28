@@ -8,12 +8,12 @@ const SignIn = () => {
   return (
     <Stack
       margin="auto"
-      marginTop="111px"
+      paddingTop="179.5px"
       justifyContent="center"
       alignItems="center"
       width="384px"
       gap="48px"
-      marginBottom="75px"
+      paddingBottom="75px"
     >
       <Typography fontSize="28px" fontWeight="700">
         Нэвтрэх

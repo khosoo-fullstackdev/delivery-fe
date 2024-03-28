@@ -3,7 +3,7 @@ import { Container, Stack, Typography } from "@mui/material";
 
 const terms = () => {
   return (
-    <Stack>
+    <Stack paddingTop="68.5px">
       <Container maxWidth="lg">
         <Stack>
           <Stack
@@ -19,7 +19,6 @@ const terms = () => {
             </Typography>
           </Stack>
           <Typography paddingY="24px">
-            {" "}
             Mstars Food delivery нь Mstars Lab компанийн интернэт худалдааны
             албан ёсны вэбсайт бөгөөд энэхүү нөхцөл, журам нь уг вэбсайтаар
             үйлчлүүлэх, худалдан авалт хийхтэй холбоотой үүсэх харилцааг

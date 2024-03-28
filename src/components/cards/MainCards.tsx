@@ -8,9 +8,9 @@ import { useFood } from "@/context/ShoppingCart";
 
 // import { StarIcon } from "@/icons/StarIcon";
 
-export const MainDishCard = () => {
+export const FoodCard = () => {
   const { allFood } = useFood();
-
+  // const saleFoods = allFood.filter((food) => food.sale > 0).slice(0, 4);
   return (
     <Stack
       direction="row"
@@ -18,6 +18,19 @@ export const MainDishCard = () => {
       flexWrap="wrap"
       width="1200px"
     >
+      <Card sx={{ width: "282px", height: "256px" }}>
+        <CardMedia
+          sx={{
+            width: "282px",
+            height: "186px",
+            borderRadius: "16px",
+          }}
+        />
+        <CardContent>
+          <Typography></Typography>
+        </CardContent>
+        <CardActions></CardActions>
+      </Card>
       {allFood.map((a, index) => {
         return (
           <Card key={index} sx={{ width: "282px", height: "256px" }}>

@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 
 export const LogoIcon = () => {
   return (
-    <Box paddingRight={2}>
+    <Box paddingRight={2} onClick={() => router.push("/")}>
       <svg
         width="33"
         height="27"
