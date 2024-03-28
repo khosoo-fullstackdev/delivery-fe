@@ -1,8 +1,29 @@
 import { Container, Stack, Typography } from "@mui/material";
-import { CardDataComercial } from "@/utils/DummyData";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
+interface data {
+  title: string;
+  text: string;
+  icon: string;
+}
+
 export const HomeAd = () => {
+  const [data, setData] = useState<data[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("./dummyComercial.json");
+        const data = await response.json();
+        setData(data);
+        console.log("comercial", data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <Container
       maxWidth="lg"
@@ -18,7 +39,7 @@ export const HomeAd = () => {
         justifyContent="space-between"
         direction="row"
       >
-        {CardDataComercial.map((data, index) => (
+        {data.map((a, index) => (
           <Stack
             key={index}
             justifyContent="center"
@@ -31,11 +52,11 @@ export const HomeAd = () => {
             padding="16px"
           >
             <Stack padding="15px" justifyContent="center" alignItems="center">
-              <Image src={`${data.icon}`} alt="images" width="30" height="30" />
+              <Image src={`${a.icon}`} alt="images" width="30" height="30" />
             </Stack>
             <Stack justifyContent="center" alignItems="center" gap="4px">
               <Typography color="#272727" fontSize="18px" fontWeight="700">
-                {data.title}
+                {a.title}
               </Typography>
               <Typography
                 color="#272727"
@@ -43,7 +64,7 @@ export const HomeAd = () => {
                 fontWeight="400"
                 sx={{ opacity: 0.75 }}
               >
-                {data.text}
+                {a.text}
               </Typography>
             </Stack>
           </Stack>

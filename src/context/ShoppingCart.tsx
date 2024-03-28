@@ -1,34 +1,65 @@
-import { useState, createContext, Dispatch, SetStateAction } from "react";
+import {
+  useState,
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+} from "react";
 
-interface shopFood {
-  id: string;
-  name: string;
-  ingredients: string;
+interface Food {
+  id: number;
   category: string;
+  foodName: string;
   price: number;
-  count: number;
+  imagePath: string;
+  ingredients: string;
   sale: number;
+  count?: number;
 }
 
-const shopFoodFirst: shopFood[] = [];
+const shopFoodFirst: Food[] = [];
+const allFoodFirst: Food[] = [];
 
 interface FoodPropsContext {
-  shopFood: shopFood[];
-  setShopFood: Dispatch<SetStateAction<shopFood[]>>;
+  shopFood: Food[];
+  setShopFood: Dispatch<SetStateAction<Food[]>>;
+  allFood: Food[];
+  setAllFood: Dispatch<SetStateAction<Food[]>>;
 }
 
-const FoodContext = createContext<FoodPropsContext>({
+const foodContext = createContext<FoodPropsContext>({
   shopFood: shopFoodFirst,
   setShopFood: () => {},
+  allFood: allFoodFirst,
+  setAllFood: () => {},
 });
 
-const FoodContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [shopFood, setShopFood] = useState(shopFoodFirst);
+const useFood = () => {
+  return useContext(foodContext);
+};
 
+const FoodContextProvider = ({ children }: { children: React.ReactNode }) => {
+  const [shopFood, setShopFood] = useState<Food[]>([]);
+  const [allFood, setAllFood] = useState<Food[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("./dummyData.json");
+        const data = await response.json();
+        setAllFood(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
-    <FoodContext.Provider value={{ shopFood, setShopFood }}>
+    <foodContext.Provider
+      value={{ shopFood, setShopFood, allFood, setAllFood }}
+    >
       {children}
-    </FoodContext.Provider>
+    </foodContext.Provider>
   );
 };
-export { FoodContextProvider, FoodContext };
+export { FoodContextProvider, foodContext, useFood };
