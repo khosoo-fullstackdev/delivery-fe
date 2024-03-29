@@ -10,7 +10,7 @@ const Header = () => {
       justifyContent="center"
       sx={{ backgroundColor: "#FFF" }}
       position="fixed"
-      zIndex="20"
+      zIndex="9999"
       width="100%"
     >
       <Container maxWidth="lg">
@@ -72,7 +72,7 @@ const Header = () => {
                 Сагс
               </Button>
             </Stack>
-            <Stack direction="row" alignItems="center" gap={1} px={2} py={2}>
+            <Stack direction="row" alignItems="center" gap={1} py={2}>
               <PersonIcon />
               <Button
                 sx={{

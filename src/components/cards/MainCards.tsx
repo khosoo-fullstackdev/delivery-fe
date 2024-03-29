@@ -4,7 +4,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { Stack, Typography } from "@mui/material";
-import { useFood } from "@/context/ShoppingCart";
+import { useFood } from "@/context/FoodContext";
 
 // import { StarIcon } from "@/icons/StarIcon";
 

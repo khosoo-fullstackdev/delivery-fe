@@ -1,4 +1,6 @@
 import { ButtonBase, Stack, Typography } from "@mui/material";
+import { Dispatch, SetStateAction } from "react";
+
 type PropType = {
   food: {
     category: string;
@@ -6,17 +8,20 @@ type PropType = {
     foodName: string;
     price: number;
     imagePath: string;
-    ingredients: string[];
-    stock: number;
+    ingredients: string;
     sale: number;
-    onClick?: (() => void | undefined) | undefined;
+    // onClick?: (() => void | undefined) | undefined;
   };
 };
-export const FoodCard = ({ food }: PropType) => {
-  const { foodName, price, imagePath, sale, onClick } = food;
+
+const close: Dispatch<SetStateAction<boolean>>;
+openModal<Dispatch<SetStateAction<boolean>>>;
+
+export const FoodCard = ({ food }: PropType, { close }, { openModal }) => {
+  const { foodName, price, imagePath, sale } = food;
   const salePrice = price - (price * sale) / 100;
   return (
-    <ButtonBase onClick={onClick}>
+    <ButtonBase onClick={openModal}>
       <Stack gap={"14px"}>
         <Stack
           width={"282px"}

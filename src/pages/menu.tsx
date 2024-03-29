@@ -1,15 +1,11 @@
+import { Menu } from "@/components/menu/Menu";
 import { Container, Stack } from "@mui/material";
 
 const menu = () => {
   return (
-    <Stack width="inherit" paddingTop="70.5px">
+    <Stack width="inherit" paddingTop="70.5px" justifyContent="center">
       <Container maxWidth="lg">
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          textAlign="center"
-        ></Stack>
-        <Stack></Stack>
+        <Menu />
       </Container>
     </Stack>
   );
