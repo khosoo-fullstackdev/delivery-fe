@@ -1,5 +1,6 @@
 import { ButtonBase, Stack, Typography } from "@mui/material";
-// import { Dispatch, SetStateAction } from "react";
+import React, { useState } from "react";
+import { CardModal } from "./CardModal";
 
 type PropType = {
   food: {
@@ -10,19 +11,27 @@ type PropType = {
     imagePath: string;
     ingredients: string;
     sale: number;
-    // onClick?: (() => void | undefined) | undefined;
+    onClick?: (() => void | undefined) | undefined;
   };
 };
 
-// const close: Dispatch<SetStateAction<boolean>>;
-// openModal<Dispatch<SetStateAction<boolean>>>;
-
 export const FoodCard = ({ food }: PropType) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { foodName, price, imagePath, sale } = food;
   const salePrice = price - (price * sale) / 100;
+
+  const onCloseModal = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
+    setIsModalOpen(false);
+  };
+  const onOpenModal = (e: any) => {
+    e.stopPropagation();
+    setIsModalOpen(true);
+  };
   return (
-    <ButtonBase>
+    <ButtonBase onClick={onOpenModal}>
       <Stack gap={"14px"}>
+        <CardModal isOpen={isModalOpen} onClose={onCloseModal} food={food} />
         <Stack
           width={"282px"}
           height={"186px"}

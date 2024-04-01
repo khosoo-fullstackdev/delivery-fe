@@ -28,7 +28,6 @@ export const HomeAd = () => {
     <Container
       maxWidth="lg"
       sx={{
-        height: "155px",
         justifyContent: "center",
         alignContent: "center",
         paddingTop: "122px",

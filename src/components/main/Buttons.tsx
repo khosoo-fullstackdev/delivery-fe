@@ -1,6 +1,8 @@
+/* eslint-disable max-lines */
 import * as React from "react";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/router";
+import { ButtonBase, Stack } from "@mui/material";
 
 export {
   SquareButton,
@@ -152,26 +154,69 @@ const MenuButton = () => {
   );
 };
 
+export const BasketButton = ({
+  clickFunc,
+  onClose,
+}: {
+  clickFunc: () => void;
+  onClose: (_e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}) => {
+  return (
+    <ButtonBase
+      onClick={() => {
+        clickFunc();
+        onClose;
+      }}
+    >
+      <Stack
+        width={"384px"}
+        height={"48px"}
+        border={"1px solid #D6D8DB"}
+        borderRadius={"4px"}
+        padding={"8px 16px"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        color={"#FFF"}
+        sx={{
+          backgroundColor: "#18BA51",
+          fontWeight: 400,
+          fontSize: "16px",
+        }}
+      >
+        Сагслах
+      </Stack>
+    </ButtonBase>
+  );
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export const MenuPageButton = ({
+  text,
+  onClick,
+}: {
+  text: string;
+  onClick: () => void;
+}) => {
+  return (
+    <ButtonBase onClick={onClick}>
+      <Stack
+        width={"280px"}
+        border={"1px solid #D6D8DB"}
+        borderRadius={"8px"}
+        padding={"8px 16px"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        sx={{
+          backgroundColor: "#FFF",
+          fontWeight: 500,
+          "&:hover": {
+            borderColor: "#FFF",
+            color: "#FFF",
+            backgroundColor: "#18BA51",
+          },
+        }}
+      >
+        {text}
+      </Stack>
+    </ButtonBase>
+  );
+};
