@@ -1,27 +1,26 @@
 import { Stack } from "@mui/material";
-
 import { useFood } from "@/context/FoodContext";
-import { FoodCard } from "../cards/Card";
+import { MenuCard } from "../cards/MenuCards";
 
 export const Menu = () => {
   const { allFood } = useFood();
   console.log(allFood);
   return (
-    <>
-      <Stack maxWidth="inehrit">
-        <Stack></Stack>
-        <Stack
-          direction="row"
-          maxWidth="inherit"
-          justifyContent="space-between"
-          flexWrap="wrap"
-          gap="43px"
-        >
-          {allFood.map((food, index) => {
-            return <FoodCard key={index} food={food} />;
-          })}
-        </Stack>
+    <Stack maxWidth="inherit">
+      <Stack py="32px"></Stack>
+      <Stack
+        direction="row"
+        maxWidth="inherit"
+        justifyContent="center"
+        flexWrap="wrap"
+        gap="24px"
+        paddingTop="56px"
+        paddingBottom="86px"
+      >
+        {allFood.map((food, index) => {
+          return <MenuCard key={index} foodData={food} />;
+        })}
       </Stack>
-    </>
+    </Stack>
   );
 };

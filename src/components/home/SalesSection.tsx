@@ -1,6 +1,6 @@
 import { ButtonBase, Stack, Typography } from "@mui/material";
 import { StarIcon } from "@/icons/StarIcon";
-import { FoodCard } from "../cards/Card";
+import { FoodCard } from "../cards/FoodCard";
 
 export const SalesSection = ({
   title,

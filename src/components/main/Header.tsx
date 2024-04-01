@@ -75,6 +75,7 @@ const Header = () => {
             <Stack direction="row" alignItems="center" gap={1} py={2}>
               <PersonIcon />
               <Button
+                onClick={() => router.push("/signin")}
                 sx={{
                   textTransform: "none",
                   fontWeight: 700,

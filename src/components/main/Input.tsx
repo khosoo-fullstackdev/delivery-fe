@@ -1,15 +1,16 @@
 import { InputBase, Stack, Typography } from "@mui/material";
+import { Dispatch, SetStateAction } from "react";
 
 export const TextInput = ({
   text,
-  placeHolderText,
-  setText,
   value,
+  placeHolderText,
+  setUserEmail,
 }: {
   text: string;
-  placeHolderText: string;
-  setText: (_p: string) => void;
   value: string;
+  placeHolderText: string;
+  setUserEmail: Dispatch<SetStateAction<string>>;
 }) => {
   return (
     <Stack width="inherit" gap={"4px"}>
@@ -29,7 +30,7 @@ export const TextInput = ({
         }}
         placeholder={placeHolderText}
         onChange={(e) => {
-          setText(`${e.target.value}`);
+          setUserEmail(`${e.target.value}`);
         }}
       />
     </Stack>
@@ -39,13 +40,13 @@ export const TextInput = ({
 export const PasswordInput = ({
   text,
   placeHolderText,
-  setPassword,
+  setUserPassword,
   value,
 }: {
   text: string;
   placeHolderText: string;
-  setPassword: (_p: string) => void;
   value: string;
+  setUserPassword: Dispatch<SetStateAction<string>>;
 }) => {
   return (
     <Stack gap={"4px"} width="inherit">
@@ -64,7 +65,7 @@ export const PasswordInput = ({
         }}
         placeholder={placeHolderText}
         onChange={(e) => {
-          setPassword(`${e.target.value}`);
+          setUserPassword(`${e.target.value}`);
         }}
       />
     </Stack>
