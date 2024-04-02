@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { Button, Link, Stack, Typography } from "@mui/material";
 import { PasswordInput, TextInput } from "../main/Input";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-const SignIn = () => {
-  const BE_URL = "http://localhost:4000/signin";
+const Signin = () => {
+  const BE_URL = "http://localhost:4000/api/signin";
 
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
@@ -15,6 +16,7 @@ const SignIn = () => {
       email: userEmail,
       password: userPassword,
     };
+    console.log("fe login", login);
     const options = {
       method: "POST",
       headers: {
@@ -24,11 +26,10 @@ const SignIn = () => {
     };
     const FETCHED_DATA = await fetch(BE_URL, options);
     const FETCHED_JSON = await FETCHED_DATA.json();
-
-    if (FETCHED_JSON == "true") {
-      router.push("/");
+    if (FETCHED_JSON.token) {
+      router.push("/dashboard");
     } else {
-      alert("Email or password is incorrect");
+      router.push("/");
     }
   };
 
@@ -99,4 +100,4 @@ const SignIn = () => {
     </Stack>
   );
 };
-export default SignIn;
+export default Signin;

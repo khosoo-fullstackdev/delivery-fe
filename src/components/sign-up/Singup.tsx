@@ -1,10 +1,36 @@
 import { Button, Link, Stack, Typography } from "@mui/material";
 import { PasswordInput, TextInput } from "../main/Input";
 import { useState } from "react";
+// import { useRouter } from "next/router";
 
-const SignIn = () => {
-  const [text, setText] = useState("");
-  const [password, setPassword] = useState("");
+const Signup = () => {
+  // const BE_URL = "http://localhost:4000/signin";
+
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+  // const router = useRouter();
+
+  // const handleLoginUser = async () => {
+  //   const login = {
+  //     email: userEmail,
+  //     password: userPassword,
+  //   };
+  //   const options = {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(login),
+  //   };
+  //   const FETCHED_DATA = await fetch(BE_URL, options);
+  //   const FETCHED_JSON = await FETCHED_DATA.json();
+
+  //   if (FETCHED_JSON == "true") {
+  //     router.push("/");
+  //   } else {
+  //     alert("Email or password is incorrect");
+  //   }
+  // };
   return (
     <Stack
       margin="auto"
@@ -22,14 +48,14 @@ const SignIn = () => {
         <TextInput
           text={"Имэйл"}
           placeHolderText={"Имэйл хаягаа оруулна уу"}
-          setText={setText}
-          value={text}
+          setUserEmail={setUserEmail}
+          value={userEmail}
         />
         <PasswordInput
           text={"Нууц үг"}
           placeHolderText={"Нууц үг"}
-          setPassword={setPassword}
-          value={password}
+          setUserPassword={setUserPassword}
+          value={userPassword}
         />
         <Link alignSelf="end" color="#000000" underline="hover">
           <Typography fontSize={"14px"} fontWeight={400}>
@@ -69,4 +95,4 @@ const SignIn = () => {
     </Stack>
   );
 };
-export default SignIn;
+export default Signup;

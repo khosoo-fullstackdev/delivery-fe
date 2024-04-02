@@ -1,10 +1,10 @@
 import { InputBase, Stack, Typography } from "@mui/material";
-import { AddresseInput } from "../inputs";
+import { AddresseInput } from "../main/Input";
 import Checkbox from "@mui/material/Checkbox";
-import { zipCode } from "@/utils/zipcode-data";
+import { Zipcode } from "@/utils/zipcode";
 
 export const OrderAdresse = () => {
-  console.log("zipcode", zipCode);
+  console.log("zipcode", Zipcode);
   return (
     <Stack
       padding={"24px"}
@@ -20,17 +20,17 @@ export const OrderAdresse = () => {
         </Typography>
         <AddresseInput
           text={"Дүүрэг сонгоно уу"}
-          data={zipCode.zipcode}
+          data={Zipcode.zipcode}
           stat={"capital"}
         />
         <AddresseInput
           text={"Хороо сонгоно уу"}
-          data={zipCode.zipcode}
+          data={Zipcode.zipcode}
           stat={"district"}
         />
         <AddresseInput
           text={"Байр, гудамж сонгоно уу"}
-          data={zipCode.zipcode}
+          data={Zipcode.zipcode}
           stat={"district"}
         />
       </Stack>

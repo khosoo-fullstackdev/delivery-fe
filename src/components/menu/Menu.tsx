@@ -15,18 +15,18 @@ export const Menu = () => {
   );
 
   return (
-    <Stack paddingY={"100px"} gap={"50px"}>
+    <Stack gap={"50px"}>
       <Stack
         padding={"16px"}
         justifyContent={"space-between"}
         alignItems={"center"}
-        width={"1258px"}
+        width={"1248px"}
       >
         <Stack
           height={"43px"}
           justifyContent={"space-between"}
           direction={"row"}
-          width={"1258px"}
+          width={"1248px"}
         >
           {CategoryData.map((cate, index) => {
             return (

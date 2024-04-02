@@ -1,7 +1,8 @@
 import { Button, Stack } from "@mui/material";
-import { LogoIcon, BasketIcon, PersonIcon } from "../../../public/Icons";
+import { LogoIcon, PersonIcon } from "../../../public/Icons";
 import { Container } from "@mui/material";
 import { useRouter } from "next/router";
+import { TemporaryDrawer } from "../cards/BasketModal";
 import Search from "./Search";
 const Header = () => {
   const router = useRouter();
@@ -60,7 +61,7 @@ const Header = () => {
           <Stack direction="row" alignItems="center" gap={2}>
             <Search />
             <Stack direction="row" alignItems="center" gap={1} px={2} py={2}>
-              <BasketIcon />
+              <TemporaryDrawer />
               <Button
                 sx={{
                   textTransform: "none",

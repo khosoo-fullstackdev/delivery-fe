@@ -13,9 +13,9 @@ interface Food {
   foodName: string;
   price: number;
   imagePath: string;
-  ingredients: string;
+  ingredients: string[];
   sale: number;
-  count?: number;
+  count: number;
 }
 
 const shopFoodFirst: Food[] = [];

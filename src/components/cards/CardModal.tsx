@@ -3,8 +3,8 @@ import * as React from "react";
 import { Stack, Modal, Typography, Button } from "@mui/material";
 import { ModalButton } from "./ModalButton";
 import { BasketButton } from "../main/Buttons";
-import { useBag } from "@/context/OrderContext";
 import { useState } from "react";
+import { useFood } from "@/context/FoodContext";
 
 const style = {
   position: "absolute" as "absolute",
@@ -27,14 +27,13 @@ export const CardModal = ({
   onClose: (_e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   food: any;
 }) => {
-  const { bagItem, setBagItem } = useBag();
-  console.log(bagItem, setBagItem);
+  const { setShopFood, shopFood } = useFood();
 
   const [bagCount, setBagCount] = useState(1);
   const { foodName, price, imagePath, sale, ingredients, category, id, stock } =
     food;
 
-  const HadlerDataToBag = () => {
+  const handlerDataToBag = () => {
     const itemInBag = {
       category: category,
       id: id,
@@ -47,9 +46,8 @@ export const CardModal = ({
       count: bagCount,
     };
 
-    setBagItem([...bagItem, itemInBag]);
+    setShopFood([...shopFood, itemInBag]);
   };
-  console.log({ bagItem });
 
   const salePrice = price - (price * sale) / 100;
   const subHandle = () => {
@@ -174,7 +172,7 @@ export const CardModal = ({
               sumHandle={sumHandle}
               value={bagCount}
             />
-            <BasketButton clickFunc={HadlerDataToBag} onClose={onClose} />
+            <BasketButton clickFunc={handlerDataToBag} onClose={onClose} />
           </Stack>
         </Stack>
       </Modal>
