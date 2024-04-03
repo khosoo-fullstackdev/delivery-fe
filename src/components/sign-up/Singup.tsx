@@ -1,36 +1,46 @@
 import { Button, Link, Stack, Typography } from "@mui/material";
 import { PasswordInput, TextInput } from "../main/Input";
 import { useState } from "react";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 const Signup = () => {
-  // const BE_URL = "http://localhost:4000/signin";
+  const BE_URL = "http://localhost:4000/register";
 
+  const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
+  const [userAddress, setUserAddress] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  // const router = useRouter();
+  const [userRePassword, setUserRePassword] = useState("");
+  const router = useRouter();
+  const request = () => {
+    if (userPassword == userRePassword) {
+      const handleSignupUser = async () => {
+        const login = {
+          name: userName,
+          email: userEmail,
+          password: userPassword,
+          address: userAddress,
+        };
+        const options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(login),
+        };
+        const FETCHED_DATA = await fetch(BE_URL, options);
+        const FETCHED_JSON = await FETCHED_DATA.json();
 
-  // const handleLoginUser = async () => {
-  //   const login = {
-  //     email: userEmail,
-  //     password: userPassword,
-  //   };
-  //   const options = {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(login),
-  //   };
-  //   const FETCHED_DATA = await fetch(BE_URL, options);
-  //   const FETCHED_JSON = await FETCHED_DATA.json();
+        if (FETCHED_JSON.message == "user created successfully") {
+          router.push("/");
+        } else {
+          alert("problem");
+        }
+      };
+      return handleSignupUser;
+    } else alert("Нууц үг ижл биш байна");
+  };
 
-  //   if (FETCHED_JSON == "true") {
-  //     router.push("/");
-  //   } else {
-  //     alert("Email or password is incorrect");
-  //   }
-  // };
   return (
     <Stack
       margin="auto"
@@ -46,16 +56,34 @@ const Signup = () => {
       </Typography>
       <Stack width="inherit" gap="16px">
         <TextInput
-          text={"Имэйл"}
+          text={"Нэр"}
           placeHolderText={"Имэйл хаягаа оруулна уу"}
-          setUserEmail={setUserEmail}
+          setFunction={setUserName}
+          value={userName}
+        />
+        <TextInput
+          text={"И-мэйл"}
+          placeHolderText={"Имэйл хаягаа оруулна уу"}
+          setFunction={setUserEmail}
           value={userEmail}
+        />
+        <TextInput
+          text={"Хаяг"}
+          placeHolderText={"Хаяг"}
+          setFunction={setUserAddress}
+          value={userAddress}
         />
         <PasswordInput
           text={"Нууц үг"}
           placeHolderText={"Нууц үг"}
           setUserPassword={setUserPassword}
           value={userPassword}
+        />
+        <PasswordInput
+          text={"Нууц үгээ давтана уу"}
+          placeHolderText={"Нууц үгээ давтана уу"}
+          setUserPassword={setUserRePassword}
+          value={userRePassword}
         />
         <Link alignSelf="end" color="#000000" underline="hover">
           <Typography fontSize={"14px"} fontWeight={400}>
@@ -65,20 +93,7 @@ const Signup = () => {
       </Stack>
       <Stack gap="32px" width="inherit" alignItems="center">
         <Button
-          sx={{
-            width: "inherit",
-            height: "48px",
-            padding: "8px 16px",
-            color: "black",
-            textTransform: "none",
-          }}
-        >
-          Нэвтрэх
-        </Button>
-        <Typography fontSize="14px" fontWeight={400}>
-          Эсвэл
-        </Typography>
-        <Button
+          onClick={request}
           sx={{
             width: "inherit",
             height: "48px",

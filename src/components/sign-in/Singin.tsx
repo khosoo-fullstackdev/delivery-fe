@@ -16,7 +16,7 @@ const Signin = () => {
       email: userEmail,
       password: userPassword,
     };
-    console.log("fe login", login);
+
     const options = {
       method: "POST",
       headers: {
@@ -50,7 +50,7 @@ const Signin = () => {
         <TextInput
           text={"Имэйл"}
           placeHolderText={"Имэйл хаягаа оруулна уу"}
-          setUserEmail={setUserEmail}
+          setFunction={setUserEmail}
           value={userEmail}
         />
         <PasswordInput
@@ -74,9 +74,7 @@ const Signin = () => {
             color: "black",
             textTransform: "none",
           }}
-          onClick={() => {
-            handleLoginUser;
-          }}
+          onClick={handleLoginUser}
         >
           Нэвтрэх
         </Button>
@@ -84,6 +82,9 @@ const Signin = () => {
           Эсвэл
         </Typography>
         <Button
+          onClick={() => {
+            router.push("signup");
+          }}
           sx={{
             width: "inherit",
             height: "48px",

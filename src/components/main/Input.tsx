@@ -17,19 +17,18 @@ export const TextInput = ({
   text,
   value,
   placeHolderText,
-  setUserEmail,
+  setFunction,
 }: {
   text: string;
   value: string;
   placeHolderText: string;
-  setUserEmail: Dispatch<SetStateAction<string>>;
+  setFunction: Dispatch<SetStateAction<string>>;
 }) => {
   return (
     <Stack width="inherit" gap={"4px"}>
       <Typography color={"#000"} fontSize={"14px"} fontWeight={400}>
         {text}
       </Typography>
-
       <InputBase
         value={value}
         type="text"
@@ -41,8 +40,8 @@ export const TextInput = ({
           borderRadius: "4px",
         }}
         placeholder={placeHolderText}
-        onChange={(e) => {
-          setUserEmail(`${e.target.value}`);
+        onChange={(r) => {
+          setFunction(r.target.value);
         }}
       />
     </Stack>
