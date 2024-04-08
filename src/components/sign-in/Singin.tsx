@@ -27,6 +27,7 @@ const Signin = () => {
     const FETCHED_DATA = await fetch(BE_URL, options);
     const FETCHED_JSON = await FETCHED_DATA.json();
     if (FETCHED_JSON.token) {
+      localStorage.setItem("token", FETCHED_JSON.token);
       router.push("/dashboard");
     } else {
       router.push("/");
