@@ -31,9 +31,6 @@ const Signup = () => {
         const FETCHED_DATA = await fetch(BE_URL, options);
         const FETCHED_JSON = await FETCHED_DATA.json();
 
-        const userToken = FETCHED_JSON.token;
-        localStorage.setItem("userToken", userToken);
-
         if (FETCHED_JSON.message == "user created successfully") {
           router.push("/");
         } else {
@@ -41,7 +38,7 @@ const Signup = () => {
         }
       };
       return handleSignupUser;
-    } else alert("Нууц үг ижл биш байна");
+    } else alert("Нууц үг ижил биш байна");
   };
 
   return (

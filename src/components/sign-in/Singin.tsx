@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 const Signin = () => {
-  const BE_URL = "http://localhost:4000/api/signin";
+  const BE_URL = "http://localhost:4000/api/login";
 
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
@@ -26,7 +26,9 @@ const Signin = () => {
     };
     const FETCHED_DATA = await fetch(BE_URL, options);
     const FETCHED_JSON = await FETCHED_DATA.json();
-    if (FETCHED_JSON.token) {
+
+    console.log(FETCHED_JSON);
+    if (FETCHED_JSON.message == "successful") {
       localStorage.setItem("token", FETCHED_JSON.token);
       router.push("/dashboard");
     } else {
