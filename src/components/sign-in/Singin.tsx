@@ -59,7 +59,7 @@ const Signin = () => {
         <PasswordInput
           text={"Нууц үг"}
           placeHolderText={"Нууц үг"}
-          setUserPassword={setUserPassword}
+          setFunction={setUserPassword}
           value={userPassword}
         />
         <Link alignSelf="end" color="#000000" underline="hover">

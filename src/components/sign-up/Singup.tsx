@@ -76,13 +76,13 @@ const Signup = () => {
         <PasswordInput
           text={"Нууц үг"}
           placeHolderText={"Нууц үг"}
-          setUserPassword={setUserPassword}
+          setFunction={setUserPassword}
           value={userPassword}
         />
         <PasswordInput
           text={"Нууц үгээ давтана уу"}
           placeHolderText={"Нууц үгээ давтана уу"}
-          setUserPassword={setUserRePassword}
+          setFunction={setUserRePassword}
           value={userRePassword}
         />
         <Link alignSelf="end" color="#000000" underline="hover">

@@ -51,13 +51,13 @@ export const TextInput = ({
 export const PasswordInput = ({
   text,
   placeHolderText,
-  setUserPassword,
+  setFunction,
   value,
 }: {
   text: string;
   placeHolderText: string;
   value: string;
-  setUserPassword: Dispatch<SetStateAction<string>>;
+  setFunction: Dispatch<SetStateAction<string>>;
 }) => {
   return (
     <Stack gap={"4px"} width="inherit">
@@ -76,7 +76,7 @@ export const PasswordInput = ({
         }}
         placeholder={placeHolderText}
         onChange={(e) => {
-          setUserPassword(`${e.target.value}`);
+          setFunction(`${e.target.value}`);
         }}
       />
     </Stack>
