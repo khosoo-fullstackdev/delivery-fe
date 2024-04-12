@@ -9,7 +9,7 @@ type PropType = {
     foodName: string;
     price: number;
     imagePath: string;
-    ingredients: string;
+    ingredients: string[];
     sale: number;
     onClick?: (() => void | undefined) | undefined;
   };

@@ -1,10 +1,9 @@
 import { InputBase, Stack, Typography } from "@mui/material";
 import { AddresseInput } from "../main/Input";
 import Checkbox from "@mui/material/Checkbox";
-import { Zipcode } from "@/utils/zipcode";
+import { Zipcode } from "@/utils/Zipcode";
 
 export const OrderAdresse = () => {
-  console.log("zipcode", Zipcode);
   return (
     <Stack
       padding={"24px"}
