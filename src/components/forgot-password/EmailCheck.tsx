@@ -1,34 +1,18 @@
 import { Button, Stack, Typography } from "@mui/material";
 import { TextInput } from "../main/Input";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 const EmailCheck = ({
   step,
-  setStep,
+  handler,
+  setFunction,
+  email,
 }: {
   step: number;
-  setStep: Dispatch<SetStateAction<number>>;
+  handler: () => {};
+  setFunction: Dispatch<SetStateAction<string>>;
+  email: string;
 }) => {
-  const BE_URL = "http://localhost:4000/api/resetPass";
-  const [userEmail, setUserEmail] = useState("");
-
-  const handleResetPassword = async () => {
-    const reset = {
-      email: userEmail,
-    };
-
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(reset),
-    };
-    const FETCHED_DATA = await fetch(BE_URL, options);
-    const FETCHED_JSON = await FETCHED_DATA.json();
-    console.log(FETCHED_JSON);
-  };
-
   return (
     <Stack
       display={step == 0 ? "flex" : "none"}
@@ -44,14 +28,13 @@ const EmailCheck = ({
       </Typography>
       <TextInput
         text="Имэйл"
-        value={userEmail}
+        value={email}
         placeHolderText="Имэйл-ээ оруулна уу"
-        setFunction={setUserEmail}
+        setFunction={setFunction}
       ></TextInput>
       <Button
         onClick={() => {
-          handleResetPassword();
-          setStep(1);
+          handler();
         }}
         sx={{
           width: "384px",

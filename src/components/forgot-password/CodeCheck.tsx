@@ -5,16 +5,19 @@ import { Dispatch, SetStateAction, useState } from "react";
 const CodeCheck = ({
   step,
   setStep,
+  email,
 }: {
   step: number;
   setStep: Dispatch<SetStateAction<number>>;
+  email: string;
 }) => {
-  const BE_URL = "http://localhost:4000/api/verify";
+  const BE_URL = "https://delivery-be.vercel.app/api/verify";
   const [code, setCode] = useState("");
 
   const handleVerifyCode = async () => {
     const check = {
-      code: code,
+      password: code,
+      email: email,
     };
 
     const options = {
@@ -26,7 +29,12 @@ const CodeCheck = ({
     };
     const FETCHED_DATA = await fetch(BE_URL, options);
     const FETCHED_JSON = await FETCHED_DATA.json();
-    console.log(FETCHED_JSON);
+
+    if (FETCHED_JSON.message == "code checked") {
+      setStep(2);
+    } else {
+      alert("problem");
+    }
   };
 
   return (
@@ -42,17 +50,19 @@ const CodeCheck = ({
       <Typography fontSize="28px" fontWeight="700">
         Нууц үг сэргээх
       </Typography>
+      <Typography fontSize="20px" fontWeight="490">
+        Таны {email} имэйл хаягруу код илгээлээ
+      </Typography>
       <PasswordInput
         text="Нууц үг сэргээх код"
-        placeHolderText=""
+        placeHolderText="Нууц кодоо хийнэ үү"
         setFunction={setCode}
-        value=""
+        value={code}
       />
 
       <Button
         onClick={() => {
           handleVerifyCode();
-          setStep(2);
         }}
         sx={{
           width: "384px",
@@ -70,4 +80,5 @@ const CodeCheck = ({
     </Stack>
   );
 };
+
 export default CodeCheck;

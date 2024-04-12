@@ -3,9 +3,9 @@ import { PasswordInput } from "../main/Input";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-const NewPassword = ({ step }: { step: number }) => {
+const NewPassword = ({ step, email }: { step: number; email: string }) => {
   const router = useRouter();
-  const BE_URL = "http://localhost:4000/api/verify";
+  const BE_URL = "https://delivery-be.vercel.app/api/newPass";
 
   const [newPassword, setNewPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
@@ -15,6 +15,7 @@ const NewPassword = ({ step }: { step: number }) => {
       const handleSignupUser = async () => {
         const login = {
           password: newPassword,
+          email: email,
         };
         const options = {
           method: "POST",
@@ -26,7 +27,7 @@ const NewPassword = ({ step }: { step: number }) => {
         const FETCHED_DATA = await fetch(BE_URL, options);
         const FETCHED_JSON = await FETCHED_DATA.json();
 
-        if (FETCHED_JSON.message == "password changed") {
+        if (FETCHED_JSON.message == "New password set") {
           router.push("/");
         } else {
           alert("problem");
