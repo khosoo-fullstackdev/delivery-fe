@@ -28,7 +28,7 @@ const NewPassword = ({ step, email }: { step: number; email: string }) => {
         const FETCHED_JSON = await FETCHED_DATA.json();
 
         if (FETCHED_JSON.message == "New password set") {
-          router.push("/");
+          router.push("/signin");
         } else {
           alert("problem");
         }
