@@ -61,14 +61,13 @@ const Signin = () => {
           setFunction={setUserPassword}
           value={userPassword}
         />
-        <Link alignSelf="end" color="#000000" underline="hover">
-          <Button
-            sx={{ fontSize: "14px", fontWeight: 400 }}
-            onClick={() => router.push("/reset")}
-          >
-            Нууц үг сэргээх
-          </Button>
-        </Link>
+
+        <Button
+          sx={{ fontSize: "14px", fontWeight: 400 }}
+          onClick={() => router.push("/reset")}
+        >
+          Нууц үг сэргээх
+        </Button>
       </Stack>
       <Stack gap="32px" width="inherit" alignItems="center">
         <Button
