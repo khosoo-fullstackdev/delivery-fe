@@ -26,7 +26,6 @@ const ResetPass = () => {
     const FETCHED_DATA = await fetch(BE_URL, options);
     const FETCHED_JSON = await FETCHED_DATA.json();
 
-    console.log(FETCHED_JSON);
     if (FETCHED_JSON.message == "Success: email was sent") {
       setStep(1);
     } else {
