@@ -7,22 +7,20 @@ import Badge, { BadgeProps } from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import { ButtonBase, Stack, Typography } from "@mui/material";
 import { BagIcon, BasketIcon } from "../../../public/Icons";
-import { useBag } from "@/context/OrderContext";
+import { useFood } from "@/context/FoodContext";
 import { ModalButton } from "../cards/ModalButton";
 import { useRouter } from "next/router";
 
 export const TemporaryDrawer = () => {
   const router = useRouter();
 
-  const { bagItem, setBagItem } = useBag();
+  const { shopFood } = useFood();
 
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
-  console.log("in Drawer: ", bagItem);
-  console.log("in Drawer: ", setBagItem);
 
   const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
     "& .MuiBadge-badge": {
@@ -63,7 +61,7 @@ export const TemporaryDrawer = () => {
           </Stack>
         </Stack>
         <Stack marginY={"24px"} gap={"24px"} direction={"row"}>
-          {bagItem.map((food, index) => (
+          {shopFood.map((food, index) => (
             <Stack
               key={index}
               width={"538px"}
@@ -116,7 +114,7 @@ export const TemporaryDrawer = () => {
                   <ModalButton
                     subHandle={() => {}}
                     sumHandle={() => {}}
-                    value={bagItem[0].count}
+                    value={shopFood[0].count}
                   />
                 </Stack>
               </Stack>
@@ -165,7 +163,7 @@ export const TemporaryDrawer = () => {
   return (
     <Stack sx={{ backgroundColor: "#FFF" }}>
       <Button onClick={toggleDrawer(true)}>
-        <StyledBadge badgeContent={bagItem.length} color="success">
+        <StyledBadge badgeContent={shopFood.length} color="success">
           <BasketIcon />
         </StyledBadge>
       </Button>

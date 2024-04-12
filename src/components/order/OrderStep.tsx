@@ -1,5 +1,5 @@
 import { Stack, Typography } from "@mui/material";
-import { StepIconIn, StepIconOut } from "../icons";
+import { StepIconIn, StepIconOut } from "../../../public/Icons";
 
 export const OrderStep = ({
   step,
