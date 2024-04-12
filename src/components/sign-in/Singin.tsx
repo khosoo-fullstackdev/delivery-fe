@@ -62,9 +62,12 @@ const Signin = () => {
           value={userPassword}
         />
         <Link alignSelf="end" color="#000000" underline="hover">
-          <Typography fontSize={"14px"} fontWeight={400}>
+          <Button
+            sx={{ fontSize: "14px", fontWeight: 400 }}
+            onClick={() => router.push("/reset")}
+          >
             Нууц үг сэргээх
-          </Typography>
+          </Button>
         </Link>
       </Stack>
       <Stack gap="32px" width="inherit" alignItems="center">
